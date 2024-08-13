@@ -3,6 +3,7 @@ import cors from 'cors'
 import { configDotenv } from 'dotenv'
 import { dbconnection } from './database/dbconnection.js';
 import messagerouter from './routes/messageroutes.js'
+import checkoutrouter from './routes/checkoutroutes.js'
 
 const app = express();
 configDotenv({path : './.env'})
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/user" , messagerouter);
+app.use('/payment' , checkoutrouter);
 
 dbconnection();
 export default app;
