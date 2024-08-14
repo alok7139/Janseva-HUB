@@ -22,28 +22,28 @@ function Donate() {
               value={amount}
               onChange={(e) => setamount(e.target.value)}
               placeholder="Enter Donation Amount (INR)"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2  focus:ring-pink-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2  "
             />
             <input
               type="text"
               value={name}
               onChange={(e) => setname(e.target.value)}
               placeholder="Your Name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 "
             />
             <input
               type="email"
               value={email}
               onChange={(e) => setemail(e.target.value)}
               placeholder="Email Address"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 "
             />
             <input
               type="text"
               placeholder="Message"
               value={message}
               onChange={(e) => setmessage(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 "
             />
             <button
               type="submit"
