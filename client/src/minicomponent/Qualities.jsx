@@ -28,7 +28,7 @@ function Qualities() {
   return (
     <>
     <div className="qualities">
-      <h2 className=''>OUR PILLARS</h2>
+      <h2 className='font-serif text-yellow-400'>Our Pillars</h2>
       <div className="container">
         {qualities.map((elememt) => {
           return (
