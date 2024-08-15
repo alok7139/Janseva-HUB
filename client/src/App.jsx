@@ -11,6 +11,7 @@ export const Donate = lazy(() => import('./components/Donate'))
 export const NotFound = lazy(() => import('./components/NotFound'))
 export const Footer = lazy(() => import('./components/Footer'))
 import LOader from './components/Loader';
+import PaymentSuccess from './components/PaymentSuccess';
 
 
 function App() { 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/donate' element={<Donate/>} />
+        <Route path='/paymentsuccess' element={<PaymentSuccess/>} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>
