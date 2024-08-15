@@ -5,6 +5,7 @@ import {BsInstagram} from 'react-icons/bs'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import Darlmode from './Darlmode'
 
+
 function Navbar() {
   const [show, setshow] = useState(false)
 
@@ -15,7 +16,7 @@ function Navbar() {
     {/* bg-gradient-to-r from-zinc-300 to-cyan-100 */}
     <nav className={` ${show ? "navbar show_navbar" : "navbar"}` }>
       <div className='logo'>
-        <img src='/logo.png' alt='logo'/>
+        <Link to={'/'}><img src='/logo.png' alt='logo'/></Link>
 
       </div>
       {/* <div> <Darlmode/> </div> */}
