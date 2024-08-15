@@ -2,24 +2,36 @@ import crypto from 'crypto'
 import { Payment } from "../models/paymentModel.js";
 import { instance } from '../server.js';
 
-export const checkout = async(req,res) => {
-    const options = {
-        amount : Number(req.body.amount*100),
-        Currency: "INR"
+export const checkout = async(req, res) => {
+    try {
+        const options = {
+            amount: Number(req.body.amount * 100),
+            currency: "INR"
+        };
+        console.log(options);
+
+        const order = await instance.orders.create(options); // Await the order creation
+        console.log(1);
+        console.log(order);
+
+        res.status(200).json({
+            success: true,
+            order,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Order creation failed",
+            error: error.message,
+        });
     }
+};
 
-    const order = await instance.orders.create(options);
-
-    console.log(order)
-    res.status(201).json({
-        success:true,
-        order,
-    })
-}
 
 export const Paymentverified =async (req,res) => {
 
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature , name , email ,phone ,message } =
     req.body;
 
   const body = razorpay_order_id + "|" + razorpay_payment_id;
@@ -43,6 +55,7 @@ export const Paymentverified =async (req,res) => {
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
+      name , email ,phone ,message
     });
 
     res.redirect(

@@ -19,9 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/user" , messagerouter);
-app.use('/api/v1' , paymentrouter);
+app.use('/api' , paymentrouter);
 
 app.get('/api/getkey' , (req,res) => res.status(200).json({key:process.env.RAZORPAY_API_KEY}))
+
 
 dbconnection();
 export default app;

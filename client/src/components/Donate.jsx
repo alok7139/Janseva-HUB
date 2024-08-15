@@ -1,35 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import ProgressBar from 'react-scroll-progress-bar';
 import axios from "axios";
+import { toast } from "react-toastify";
+
 
 function Donate() {
   const [name, setname] = useState('');
   const [email, setemail] = useState('');
   const [message, setmessage] = useState('');
   const [amount, setamount] = useState('');
-  const [disablebtn, setdisablebtn] = useState(false);
+  // const [disablebtn, setdisablebtn] = useState(false);
   
-  const handlesubmit = async(e) => {
-     e.preventDefault();
+  const handlesubmit = async(amount) => {
+    //  e.preventDefault();
+
+    if(amount <= 0){
+      toast.error('amount should be greater then zero')
+    }
 
      try {
-      setdisablebtn(true);
+      // setdisablebtn(true);
       const {data: {key}} = await axios.get('http://localhost:3000/api/getkey')
 
-      const {data:{order}} = await axios.post('http://localhost:3000/api/v1/checkout' , {amount , name,email,message});
+      const {data:{order}} = await axios.post('http://localhost:3000/api/checkout' , {amount});
+      
 
       const options = {
         key, 
         amount: order.amount, 
         currency: "INR",
-        name: "ALok Garg", 
+        name: `${name}`, 
         description: "Test Transaction",
         image: "https://www.ntc.edu/sites/default/files/styles/full_width_16_9/public/2021-06/software-development-specialist.jpg?itok=D8qgVwxb",
         order_id: order.id, 
-        callback_url: "http://localhost:3000/api/v1/payment/verified",
+        // callback_url: "http://localhost:3000/api/payment/verified",
+        // callback_url: "http://localhost:5173/paymentsuccess",
         prefill: { 
-            name: "Gaurav Kumar", 
-            email: "gaurav.kumar@example.com",
+            name: "JansevaHUB", 
+            email: "jansevaHUB@example.com",
             contact: "9000090000" 
         },
         notes: {
@@ -41,6 +49,13 @@ function Donate() {
     };
     const razor = new window.Razorpay(options);
     razor.open();
+
+     setamount('');
+     setname('')
+     setemail('')
+     setmessage("")
+
+
       
      } catch (error) {
         console.error(error);
@@ -50,6 +65,12 @@ function Donate() {
 
   }
 
+  const handelform = (e) => {
+    e.preventDefault()
+    handlesubmit(amount)
+  }
+  console.log(amount)
+
   return (
     <>
       <ProgressBar height="8" bgcolor="#F43059" duration="1" />
@@ -58,7 +79,7 @@ function Donate() {
           <div className="mb-4">
             <img src="/logo.png" alt="logo" className="max-w-xs" />
           </div>
-          <form className="w-full space-y-4" onSubmit={handlesubmit}>
+          <form className="w-full space-y-4"  onSubmit={handelform}>
             <input
               type="number"
               value={amount}
@@ -89,8 +110,9 @@ function Donate() {
             />
             <button
               type="submit"
-              className={`w-full py-2 rounded-md text-white ${disablebtn ? 'bg-gray-400' : 'bg-pink-500 hover:bg-pink-600'} transition-colors duration-300`}
-              disabled={disablebtn}
+              className={`w-full py-2 rounded-md text-white bg-pink-500 hover:bg-pink-600 transition-colors duration-300`}
+              // disabled={disablebtn}
+              // onClick={() =>  handlesubmit(amount)}
             >
               Donate {amount ? `${amount} RS` : "0"}
             </button>
