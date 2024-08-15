@@ -12,7 +12,7 @@ function Contact() {
   const handlemessage = async(e) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:3000/user/send/message" , {name,email,phone , message} , {withCredentials:true , headers: {"Content-Type" : "application/json"}})
+    await axios.post("https://janseva-hub.onrender.com/user/send/message" , {name,email,phone , message} , {withCredentials:true , headers: {"Content-Type" : "application/json"}})
     .then((res) => {
       setname("")
       setemail("")

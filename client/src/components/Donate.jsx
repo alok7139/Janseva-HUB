@@ -20,9 +20,9 @@ function Donate() {
 
      try {
       // setdisablebtn(true);
-      const {data: {key}} = await axios.get('http://localhost:3000/api/getkey')
+      const {data: {key}} = await axios.get('https://janseva-hub.onrender.com/api/getkey')
 
-      const {data:{order}} = await axios.post('http://localhost:3000/api/checkout' , {amount});
+      const {data:{order}} = await axios.post('https://janseva-hub.onrender.com/api/checkout' , {amount});
       
 
       const options = {
@@ -33,7 +33,7 @@ function Donate() {
         description: "Test Transaction",
         image: "https://www.ntc.edu/sites/default/files/styles/full_width_16_9/public/2021-06/software-development-specialist.jpg?itok=D8qgVwxb",
         order_id: order.id, 
-        // callback_url: "http://localhost:3000/api/payment/verified",
+        // callback_url: "https://janseva-hub.onrender.com/api/payment/verified",
         // callback_url: "http://localhost:5173/paymentsuccess",
         prefill: { 
             name: "JansevaHUB", 
