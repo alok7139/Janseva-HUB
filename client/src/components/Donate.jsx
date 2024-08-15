@@ -49,12 +49,14 @@ function Donate() {
     };
     const razor = new window.Razorpay(options);
     razor.open();
-    toast.success(`Thanks for the donation ${name}`)
+    // toast.success(`Thanks for the donation ${name}`)
 
      setamount('');
      setname('')
      setemail('')
      setmessage("")
+     
+
 
      
 
@@ -71,6 +73,7 @@ function Donate() {
   const handelform = (e) => {
     e.preventDefault()
     handlesubmit(amount)
+    toast.success("Thanks for the donation");
   }
   console.log(amount)
 
