@@ -36,8 +36,8 @@ function Donate() {
         // callback_url: "https://janseva-hub.onrender.com/api/payment/verified",
         // callback_url: "http://localhost:5173/paymentsuccess",
         prefill: { 
-            name: "JansevaHUB", 
-            email: "jansevaHUB@example.com",
+            name: `${name}`, 
+            email: `${name}@example.com`,
             contact: "9000090000" 
         },
         notes: {
@@ -73,7 +73,7 @@ function Donate() {
   const handelform = (e) => {
     e.preventDefault()
     handlesubmit(amount)
-    toast.success("Thanks for the donation");
+    // toast.success("Thanks for the donation");
   }
   console.log(amount)
 
