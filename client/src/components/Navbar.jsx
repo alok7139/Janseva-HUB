@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {FaBitcoin , FaYoutube , FaSquareGithub} from 'react-icons/fa6'
 import {BsInstagram} from 'react-icons/bs'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import Darlmode from './Darlmode'
+import Darlmode from './Darkmode'
 import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 
