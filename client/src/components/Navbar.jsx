@@ -4,6 +4,8 @@ import {FaBitcoin , FaYoutube , FaSquareGithub} from 'react-icons/fa6'
 import {BsInstagram} from 'react-icons/bs'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import Darlmode from './Darlmode'
+import { FaLinkedin } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 
 function Navbar() {
@@ -22,7 +24,7 @@ function Navbar() {
       {/* <div> <Darlmode/> </div> */}
       <div className='links'>
         <ul >
-        <li> <Darlmode/> </li>
+        <li > <Darlmode/> </li>
           <li ><Link  to={'/'}>Home</Link></li>
           <li><Link to={'/donate'}>Donate US</Link></li>
           <li><Link to={'/about'}>About</Link></li>
@@ -30,11 +32,13 @@ function Navbar() {
         </ul>
 
         <ul>
-          <li><Link to={'/'}> <FaBitcoin/> </Link></li>
-          <li><Link to={'/'}> <FaYoutube/> </Link></li>
-          <li><Link to={'https://github.com/alok7139'}> <FaSquareGithub/> </Link></li>
-          <li><Link to={'https://www.instagram.com/_garg_alok_/?hl=en'}> <BsInstagram/> </Link></li>
+          <li><Link to={'https://www.linkedin.com/in/alok-garg-7118b6257/'} target='_blank'> <FaLinkedin/> </Link></li>
+          <li><Link to={'https://x.com/AlokGar76235535'} target='_blank'> <FaTwitter/> </Link></li>
+          <li><Link to={'https://github.com/alok7139'} target='_blank'> <FaSquareGithub/> </Link></li>
+          <li><Link to={'https://www.instagram.com/_garg_alok_/?hl=en'} target='_blank'> <BsInstagram/> </Link></li>
         </ul>
+
+        
 
       </div>
 
@@ -46,3 +50,7 @@ function Navbar() {
 }
 
 export default Navbar
+
+
+
+

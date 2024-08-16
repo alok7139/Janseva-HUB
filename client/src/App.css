@@ -412,6 +412,7 @@ footer div ul a span {
   text-decoration: none;
   display: flex;
   transition: 0.3s;
+  flex-direction: column;
 }
 .navbar .links ul li a:hover {
   color: blue;    
@@ -422,22 +423,24 @@ footer div ul a span {
 }
 .navbar .links ul:last-child li {
   padding: 8px;
-  border: 2px solid #facc15;
+  /* border: 2px solid #facc15; */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  background: red;
+   background: blueviolet; 
+   /* background-image: linear-gradient(to red yellow teal); */
   transition: 0.3s;
 }
-.navbar .links ul:last-child li:hover {
-  background: transparent;
+ .navbar .links ul:last-child li:hover {
+  /* background: transparent; */
+  cursor: pointer;
   transition: 0.3s;
-}
-.navbar .links ul:last-child li:hover svg {
-  color: #facc15;
+} 
+  /*.navbar .links ul:last-child li:hover svg {
+   color: #facc15; 
   transition: 0.3s;
-}
+}  */
 .navbar .links ul li svg {
   font-size: 24px;
   color: #fff;
