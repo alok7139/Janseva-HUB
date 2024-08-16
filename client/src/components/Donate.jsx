@@ -15,7 +15,7 @@ function Donate() {
     //  e.preventDefault();
 
     if(amount <= 0){
-      toast.error('amount should be greater then zero')
+      toast.error('Please Enter the Amount')
     }
 
      try {
